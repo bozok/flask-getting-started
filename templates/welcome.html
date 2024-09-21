@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block title %} Welcome! {% endblock %} {% block
+content %}
+<h1>Welcome to my page!</h1>
+<p>
+  {{message}} Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur
+  rem dicta commodi ut, <em>Getting started with Flask</em> on
+  <a href="#">https://kolayportal.net</a> ullam impedit minima aspernatur nam
+  error repellat modi repellendus rerum magni magnam molestias accusamus
+  nesciunt, aliquam debitis.
+</p>
+
+<h2>Flash Cards</h2>
+<ul>
+  {% for card in cards %}
+  <li>
+    <a href="{{url_for('card_view', index=loop.index0)}}">
+      {{card.question}}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+<a href="{{ url_for('add_card') }}">Add a new card</a>
+{% endblock %}
